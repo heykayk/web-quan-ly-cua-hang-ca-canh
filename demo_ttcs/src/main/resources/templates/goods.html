@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>hang hoa</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous" />
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.navbar-menu {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 1;
+	background-color: #fff;
+	padding: 0;
+	border-radius: 8px;
+}
+
+.content {
+	display: flex;
+	margin: 38px 70px 0;
+	padding: 20px 0;
+}
+
+.content .sidebar {
+	width: 25%;
+	height: 100vh;
+	padding: 10px 20px;
+	background-color: #e7e9eb;
+}
+
+.content .sidebar .group-product {
+	display: block;
+	border: 1px solid #000;
+	background-color: #fff;
+	font-size: 20px;
+	font-weight: 400;
+	margin-top: 30px;
+}
+
+.content .sidebar {
+	border-right: 1px solid #000;
+}
+
+.content .group-product .name-group {
+	font-size: 20px;
+	font-weight: 400;
+	padding-left: 20px;
+}
+
+.sidebar .group-btn {
+	padding: 10px;
+	margin-bottom: 10px;
+	border: none;
+	background-color: #fff;
+	border: 1px solid #000;
+	margin: 10px 20%;
+	padding: 0 10%;
+	font-size: 16px;
+	border-color: #198754;
+	color: #198754;
+	width: 60%;
+}
+
+.sidebar .group-btn:hover {
+	background-color: #198754;
+	color: #fff;
+}
+
+.content .slide-product {
+	background-color: #fff;
+	width: 75%;
+	height: 100vh;
+	padding: 10px 20px;
+}
+
+.add-product {
+	border: 1px solid #000;
+	background-color: #fff;
+	margin-top: 30px;
+	display: block;
+}
+
+.add-product .name-add-product {
+	font-size: 20px;
+	font-weight: 400;
+	padding-left: 20px;
+}
+
+.add-product .add-new-product-btn {
+	padding: 10px;
+	margin-bottom: 10px;
+	border: none;
+	background-color: #fff;
+	border: 1px solid #000;
+	margin: 10px 20%;
+	padding: 0 10%;
+	font-size: 16px;
+	border-color: #198754;
+	color: #198754;
+	width: 60%;
+}
+
+.add-product .add-new-product-btn:hover {
+	background-color: #198754;
+	color: #fff;
+}
+
+.content .slide-product {
+	background-color: #fff;
+	overflow-y: scroll;
+}
+
+.slide-product .page-product .text-product, .slide-product .page-product .product
+	{
+	display: flex;
+	margin: 10px 0;
+}
+
+.slide-product .page-product .table-product tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.slide-product .page-product .table-product tr:hover {
+	background-color: #ddd;
+}
+
+.slide-product .page-product td {
+	padding: 8px 2px;
+}
+
+.slide-product th {
+	width: 150px;
+	padding: 5px;
+}
+
+.slide-product .page-product .name-product {
+	width: 600px;
+}
+
+.slide-product .page-product.stiker {
+	width: 5px;
+}
+</style>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<link rel="stylesheet"
+	href="./assets/css/themify-icons-font (1)/themify-icons/themify-icons.css" />
+</head>
+<body>
+	<div class="navbar-menu">
+		<div class="menu" style="margin: 0 10%">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container-fluid"
+					style="background-color: #198754; border: 1px solid #198754; border-radius: 16px;">
+					<button class="navbar-toggler" type="button"
+						data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+						aria-controls="navbarTogglerDemo01" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+						<a class="navbar-brand" href="home.html"
+							style="font-weight: 600; color: #fff">TRANG
+							CHỦ</a>
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item"><a class="nav-link active"
+								aria-current="page" href="/hang-hoa"
+								style="font-weight: 600; color: #fff">HÀNG
+									HÓA</a></li>
+							<li class="nav-item"><a class="nav-link active"
+								aria-current="page" href="#"
+								style="font-weight: 600; color: #fff">KHÁCH
+									HÀNG</a></li>
+							<li class="nav-item"><a class="nav-link active"
+								aria-current="page" href="#"
+								style="font-weight: 600; color: #fff">HÓA
+									ĐƠN</a></li>
+							<li class="nav-item"><a class="nav-link active"
+								aria-current="page" 
+								style="font-weight: 600; color: #fff">BÁN
+									HÀNG</a></li>
+						</ul>
+						<a class="nav-link active" aria-current="page" href="login.html"
+							style="font-weight: 600; color: #fff; margin-right: 20px">
+							CUT</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div class="content">
+		<div class="sidebar">
+			<span style="font-size: 24px; font-weight: 500">Hàng Hóa</span>
+			<div class="group-product">
+				<div class="name-group">Nhóm hàng</div>
+				<a th:href="@{~/hang-hoa}" class="group-btn btn btn-success">Tất cả</a> 
+				<a th:href="@{~/hang-hoa/{t} (t = 1)}" class="group-btn btn btn-success">Cá cảnh</a> 
+				<a th:href="@{~/hang-hoa/{t} (t = 2)}" class="group-btn btn btn-success">Phụ Kiện</a> 
+				<a th:href="@{~/hang-hoa/{t} (t = 3)}" class="group-btn btn btn-success">Thức Ăn</a>
+			</div>
+
+			<div class="add-product" style="border:none">
+					<a th:href="@{~/product/{id} (id = -1)}"  class="btn btn-success col-lg-12">Thêm hàng hóa</a>
+			</div>
+		</div>
+
+		<div class="slide-product">
+			<div class="page-product">
+				<table class="table-product">
+					<thead>
+						<tr
+							style="background-color: #198754; color: #fff; margin-bottom: 50px;">
+							<th>Mã sản phẩm</th>
+							<th class="name-product">Tên sản phẩm</th>
+							<th>Giá bán</th>
+							<th>Số lượng</th>
+							<th>Hành động</th>
+						</tr>
+					</thead>
+					<tbody class="list-product" style="font-size: 16px; color: #000">
+						<tr th:each="product: ${goods}">
+							<td class="id-pro" th:text = "${product.id}"></td>
+							<td class="name-pro" th:text = "${product.name}"></td>
+							<td class="price-pro" th:text = "${product.slaes_price}"></td>
+							<td class="quatity-pro" th:text = "${product.quatity}"></td>
+							<td class="btn-pro">
+                  				<a th:href="@{~/product/{id} (id = ${product.id})}"
+								class="btn btn-success" style="width: 40%; padding: 0;">View</a>
+                  				<a th:href="@{~/product/deleteP/{id}(id = ${product.id})}" 
+                  				class="btn btn-danger" style="width: 40%; padding: 0;"
+                  				onclick = "return confirm('Bạn có muốn xóa sản phẩm này?')">Xóa</a>
+                  			</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
