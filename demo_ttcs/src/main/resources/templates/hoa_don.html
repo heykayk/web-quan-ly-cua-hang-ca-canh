@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>hoa don</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <link rel="stylesheet" href="./assets/css/themify-icons-font (1)/themify-icons/themify-icons.css" />
+  <link rel="stylesheet" href="/css/hoa_don.css" />
+</head>
+
+<body>
+  <div class="main">
+    <div class="navbar-menu">
+      <div class="menu" style="margin: 0 10%">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid" style="
+                background-color: #198754;
+                border: 1px solid #198754;
+                border-radius: 16px;
+              ">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+              aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+              <a class="navbar-brand" href="/trang_chu" style="font-weight: 600; color: #fff">TRANG CHỦ</a>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/hang-hoa"
+                    style="font-weight: 600; color: #fff">HÀNG HÓA</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/customer"
+                    style="font-weight: 600; color: #fff">KHÁCH HÀNG</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/hoa_don" style="font-weight: 600; color: #fff">HÓA
+                    ĐƠN</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/ban_hang"
+                    style="font-weight: 600; color: #fff">BÁN HÀNG</a>
+                </li>
+              </ul>
+              <a class="nav-link active" aria-current="page" href="/logout"
+                style="font-weight: 600; color: #fff; margin-right: 20px">
+                ĐĂNG XUẤT</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="slide-bar" id = "detail-bill">
+       	 
+      </div>
+
+      <div class="slide-client">
+        <div class="page-client">
+          <table class="table-client">
+            <thead>
+              <tr style="
+                    background-color: #198754;
+                    color: #fff;
+                    margin-bottom: 50px;
+                  ">
+                <th>Mã HĐ</th>
+                <th>Thời gian</th>
+                <th>Tên Khách Hàng</th>
+                <th>Tổng tiền</th>
+
+                <th style="width: 100px; align-items: center"></th>
+              </tr>
+            </thead>
+            <tbody id="list-bill">
+              <tr>
+                <td>123456</td>
+                <td>5/10/2023 12:24</td>
+                <td>Hà</td>
+                <td>123456789</td>
+
+                <td class="align-items: center">
+                  <button class="btn btn-success js-view-bill" style="width: 60%; padding: 0">
+                    Chi tiết
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>123456</td>
+                <td>5/10/2023 12:24</td>
+                <td>Nguyen son ha ha hah</td>
+                <td>212345678</td>
+
+                <td>
+                  <button class="btn btn-success js-view-bill" style="width: 60%; padding: 0">
+                    Chi tiết
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+
+  function getTime(timestamp) {
+    var date = new Date(timestamp);
+    var formattedDateTime = date.toLocaleString();
+    return formattedDateTime;
+  }
+
+  async function showBill(id) {
+    var bill;
+    await fetch(`/hoa_don/${id}`)
+      .then(response => response.json())
+      .then(data => {
+        // console.log(data)
+        bill = data;
+      });
+    var list;
+    await fetch(`/hoa_don/list_detail/${id}`)
+      .then(response => response.json())
+      .then(data => {
+        // console.log(data)
+        list = data
+      });
+
+    let tab = `<h4>Chi Tiết Hóa Đơn</h4>
+        <div class="bill-details">
+          <div class="bill-header">
+            <p>Mã hóa đơn: ${bill.id}</p>
+            <p>Thời gian xuất hóa đơn: ${getTime(bill.timestamp)}</p>
+            <p>Tên khách hàng: ${bill.name}</p>
+          </div>
+          <hr />`
+    for (let detail of list) {
+      tab += ` <div class="bill-body">
+            <table>
+              <tr>
+                <td style="width: 50%; overflow: hidden; width:180px;" >
+                  ${detail.name}
+                </td>
+                <td>${detail.quantity}</td>
+                <td>${detail.price}</td>
+                <td>${detail.total}</td>
+              </tr>
+            </table>
+          </div>
+          <hr />`
+    }
+    tab += `<div class="last-bill">
+            <table style="width: 100%">
+              <tr style="width: 100%">
+                <th style="text-align: left; width: 50%">TỔNG TIỀN</th>
+                <th style="text-align: right; width: 50%">${bill.total}</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>`
+
+      document.getElementById("detail-bill").innerHTML = tab;
+  }
+
+  async function getapi() {
+    const response = await fetch("/hoa_don/list_bill");
+    const data = await response.json();
+    show(data);
+  }
+
+  async function getBillLatest() {
+    const response = await fetch("/hoa_don/latest");
+    const data = await response.json();
+    showBill(data);
+  }
+
+  getapi();
+  getBillLatest();
+
+  function show(data) {
+    let tab = ``;
+
+    for (let bill of data) {
+      tab += `<tr>
+                  <td>${bill.id}</td>
+                  <td>${getTime(bill.timestamp)}</td>
+                  <td>${bill.name}</td>
+                  <td>${bill.total}</td>
+
+                  <td class="align-items: center">
+                    <button
+                      class="btn btn-success js-view-bill"
+                      style="width: 60%; padding: 0"
+                      onclick = "showBill(${bill.id})"
+                    >
+                      Chi tiết
+                    </button>
+                  </td>
+                </tr>`;
+    }
+
+    document.getElementById("list-bill").innerHTML = tab;
+  }
+</script>
+

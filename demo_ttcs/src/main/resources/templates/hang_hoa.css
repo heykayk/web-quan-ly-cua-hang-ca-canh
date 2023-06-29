@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar-menu {
+
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+    background-color:#fff;
+    padding: 0;
+    border-radius: 8px;
+}
+
+.content {
+    display: flex;
+    margin: 38px 70px 0;
+    padding: 20px 0;
+}
+
+.content .sidebar {
+    
+    width: 25%;
+    height: 100vh;
+    padding: 10px 20px;
+    background-color: #e7e9eb;
+    
+}
+
+.content .sidebar .group-product {
+    display: block;
+    border: 1px solid #000;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 30px;
+    
+}
+
+.content .sidebar {
+    border-right: 1px solid #000;
+}
+.content .group-product .name-group {
+    font-size: 20px;
+    font-weight: 400;
+    padding-left: 20px;
+}
+
+.sidebar .group-btn {
+    
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: #fff;
+    border: 1px solid #000;
+    margin: 10px 20%;
+    padding: 0 10%;
+    font-size: 16px;
+    border-color: #198754;
+    color: #198754;
+    width: 60%;
+}
+.sidebar .group-btn:hover {
+    background-color: #198754;
+    color: #fff;
+
+}
+
+.content .slide-product {
+    background-color:#fff;
+    width: 75%;
+    height: 100vh;
+    padding: 10px 20px;
+}
+.add-product {
+    border: 1px solid #000;
+    background-color: #fff;
+    margin-top: 30px;
+    display: block;
+}
+.add-product .name-add-product {
+    font-size: 20px;
+    font-weight: 400;
+    padding-left: 20px;
+}
+.add-product .add-new-product-btn,
+.add-product   .name-new-product ,
+.add-product   .title-new-product ,
+.add-product   .form-selcet ,
+.add-product   .quatity-new-product ,
+.add-product   .import-price-new-product,
+.add-product .sales-price-new-product {
+    
+    background-color: #fff;
+    border: 1px solid #000;
+    font-size: 16px;
+    border-color: #198754;
+    color: #198754;
+    width: 80%;
+    height: 30px;
+    margin: 10px 10% ;
+   }
+.add-product .add-new-product-btn:hover {
+    background-color: #198754;
+    color: #fff;
+}
+.content .slide-product {
+    background-color: #fff;
+    overflow-y: scroll;
+}
+.slide-product .page-product .text-product,
+.slide-product .page-product .product {
+    display: flex;
+    margin: 10px 0;
+    
+   
+    
+    
+}
+.slide-product .page-product .table-product tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+.slide-product .page-product .table-product tr:hover {
+    background-color: #ddd;
+}
+.slide-product .page-product td {
+    padding: 8px 2px;
+}
+.slide-product th {
+    width: 150px;
+    padding: 5px;
+}
+.slide-product .page-product .name-product {
+    width: 600px;
+}
+
+.slide-product .page-product.stiker {
+    width: 5px;
+}
+
+
+

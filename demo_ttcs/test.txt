@@ -1,0 +1,130 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema demo_ttcs
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema demo_ttcs
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `demo_ttcs` DEFAULT CHARACTER SET utf8 ;
+USE `demo_ttcs` ;
+
+-- -----------------------------------------------------
+-- Table `demo_ttcs`.`account`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `demo_ttcs`.`account` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NULL,
+  `password` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `phoneNumber` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `demo_ttcs`.`product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `demo_ttcs`.`product` (
+  `pid` INT NOT NULL AUTO_INCREMENT,
+  `account_id` INT NULL,
+  `name` VARCHAR(45) NULL,
+  `image` TEXT NULL,
+  `type` INT NULL,
+  `quantity` INT NULL,
+  `import_price` INT NULL,
+  `sales_price` INT NULL,
+  PRIMARY KEY (`pid`),
+  CONSTRAINT `account_id`
+    FOREIGN KEY ()
+    REFERENCES `demo_ttcs`.`account` ()
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `demo_ttcs`.`type`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `demo_ttcs`.`type` (
+  `tid` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NULL,
+  PRIMARY KEY (`tid`),
+  CONSTRAINT `pid`
+    FOREIGN KEY ()
+    REFERENCES `demo_ttcs`.`product` ()
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `demo_ttcs`.`customer`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `demo_ttcs`.`customer` (
+  `cid` INT NOT NULL AUTO_INCREMENT,
+  `account_id` INT NULL,
+  `name` VARCHAR(45) NULL,
+  `phone_number` VARCHAR(20) NULL,
+  `sex` INT NULL,
+  `reward_points` INT NULL,
+  `dob` DATE NULL,
+  PRIMARY KEY (`cid`),
+  CONSTRAINT `account_id`
+    FOREIGN KEY ()
+    REFERENCES `demo_ttcs`.`account` ()
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `demo_ttcs`.`bill`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `demo_ttcs`.`bill` (
+  `bid` INT NOT NULL AUTO_INCREMENT,
+  `account_id` INT NULL,
+  `cid` INT NULL,
+  `sale_date` DATE NULL,
+  `total` INT NULL,
+  PRIMARY KEY (`bid`),
+  CONSTRAINT `account_id`
+    FOREIGN KEY ()
+    REFERENCES `demo_ttcs`.`account` ()
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `cid`
+    FOREIGN KEY ()
+    REFERENCES `demo_ttcs`.`customer` ()
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `demo_ttcs`.`bill_detail`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `demo_ttcs`.`bill_detail` (
+  `bid` INT NULL,
+  `pid` INT NULL,
+  CONSTRAINT `bid`
+    FOREIGN KEY ()
+    REFERENCES `demo_ttcs`.`bill` ()
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `pid`
+    FOREIGN KEY ()
+    REFERENCES `demo_ttcs`.`product` ()
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

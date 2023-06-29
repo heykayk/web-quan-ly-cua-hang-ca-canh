@@ -9,154 +9,11 @@
 	rel="stylesheet"
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous" />
-<style type="text/css">
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-.navbar-menu {
-	position: fixed;
-	width: 100%;
-	top: 0;
-	z-index: 1;
-	background-color: #fff;
-	padding: 0;
-	border-radius: 8px;
-}
-
-.content {
-	display: flex;
-	margin: 38px 70px 0;
-	padding: 20px 0;
-}
-
-.content .sidebar {
-	width: 25%;
-	height: 100vh;
-	padding: 10px 20px;
-	background-color: #e7e9eb;
-}
-
-.content .sidebar .group-product {
-	display: block;
-	border: 1px solid #000;
-	background-color: #fff;
-	font-size: 20px;
-	font-weight: 400;
-	margin-top: 30px;
-}
-
-.content .sidebar {
-	border-right: 1px solid #000;
-}
-
-.content .group-product .name-group {
-	font-size: 20px;
-	font-weight: 400;
-	padding-left: 20px;
-}
-
-.sidebar .group-btn {
-	padding: 10px;
-	margin-bottom: 10px;
-	border: none;
-	background-color: #fff;
-	border: 1px solid #000;
-	margin: 10px 20%;
-	padding: 0 10%;
-	font-size: 16px;
-	border-color: #198754;
-	color: #198754;
-	width: 60%;
-}
-
-.sidebar .group-btn:hover {
-	background-color: #198754;
-	color: #fff;
-}
-
-.content .slide-product {
-	background-color: #fff;
-	width: 75%;
-	height: 100vh;
-	padding: 10px 20px;
-}
-
-.add-product {
-	border: 1px solid #000;
-	background-color: #fff;
-	margin-top: 30px;
-	display: block;
-}
-
-.add-product .name-add-product {
-	font-size: 20px;
-	font-weight: 400;
-	padding-left: 20px;
-}
-
-.add-product .add-new-product-btn {
-	padding: 10px;
-	margin-bottom: 10px;
-	border: none;
-	background-color: #fff;
-	border: 1px solid #000;
-	margin: 10px 20%;
-	padding: 0 10%;
-	font-size: 16px;
-	border-color: #198754;
-	color: #198754;
-	width: 60%;
-}
-
-.add-product .add-new-product-btn:hover {
-	background-color: #198754;
-	color: #fff;
-}
-
-.content .slide-product {
-	background-color: #fff;
-	overflow-y: scroll;
-}
-
-.slide-product .page-product .text-product, .slide-product .page-product .product
-	{
-	display: flex;
-	margin: 10px 0;
-}
-
-.slide-product .page-product .table-product tr:nth-child(even) {
-	background-color: #f2f2f2;
-}
-
-.slide-product .page-product .table-product tr:hover {
-	background-color: #ddd;
-}
-
-.slide-product .page-product td {
-	padding: 8px 2px;
-}
-
-.slide-product th {
-	width: 150px;
-	padding: 5px;
-}
-
-.slide-product .page-product .name-product {
-	width: 600px;
-}
-
-.slide-product .page-product.stiker {
-	width: 5px;
-}
-</style>
+<link rel="stylesheet" th:href="@{/css/goods.css}">
+<link rel="stylesheet" th:href="@{/assets/css/themify-icons/themify-icons.css}" />
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-<link rel="stylesheet"
-	href="./assets/css/themify-icons-font (1)/themify-icons/themify-icons.css" />
-</head>
+
 <body>
 	<div class="navbar-menu">
 		<div class="menu" style="margin: 0 10%">
@@ -170,7 +27,7 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-						<a class="navbar-brand" href="home.html"
+						<a class="navbar-brand" href="/trang_chu"
 							style="font-weight: 600; color: #fff">TRANG
 							CHỦ</a>
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -179,21 +36,21 @@
 								style="font-weight: 600; color: #fff">HÀNG
 									HÓA</a></li>
 							<li class="nav-item"><a class="nav-link active"
-								aria-current="page" href="#"
+								aria-current="page" href="/customer"
 								style="font-weight: 600; color: #fff">KHÁCH
 									HÀNG</a></li>
 							<li class="nav-item"><a class="nav-link active"
-								aria-current="page" href="#"
+								aria-current="page" href="/hoa_don"
 								style="font-weight: 600; color: #fff">HÓA
 									ĐƠN</a></li>
 							<li class="nav-item"><a class="nav-link active"
-								aria-current="page" 
+								aria-current="page" href = "/ban_hang"
 								style="font-weight: 600; color: #fff">BÁN
 									HÀNG</a></li>
 						</ul>
-						<a class="nav-link active" aria-current="page" href="login.html"
+						<a class="nav-link active" aria-current="page" href="/logout"
 							style="font-weight: 600; color: #fff; margin-right: 20px">
-							CUT</a>
+							ĐĂNG XUẤT</a>
 					</div>
 				</div>
 			</nav>
@@ -225,6 +82,7 @@
 							<th class="name-product">Tên sản phẩm</th>
 							<th>Giá bán</th>
 							<th>Số lượng</th>
+							<th>Đã bán</th>
 							<th>Hành động</th>
 						</tr>
 					</thead>
@@ -232,14 +90,15 @@
 						<tr th:each="product: ${goods}">
 							<td class="id-pro" th:text = "${product.id}"></td>
 							<td class="name-pro" th:text = "${product.name}"></td>
-							<td class="price-pro" th:text = "${product.slaes_price}"></td>
-							<td class="quatity-pro" th:text = "${product.quatity}"></td>
+							<td class="price-pro" th:text = "${product.sales_price}"></td>
+							<td class="quatity-pro" th:text = "${product.quantity}"></td>
+							<td class = "itemsSold" th:text = "${product.amountSold}"></td>
 							<td class="btn-pro">
                   				<a th:href="@{~/product/{id} (id = ${product.id})}"
-								class="btn btn-success" style="width: 40%; padding: 0;">View</a>
+								class="btn btn-success" style="width: 40%; padding: 0;"><i class="ti-pencil-alt"></i></a>
                   				<a th:href="@{~/product/deleteP/{id}(id = ${product.id})}" 
                   				class="btn btn-danger" style="width: 40%; padding: 0;"
-                  				onclick = "return confirm('Bạn có muốn xóa sản phẩm này?')">Xóa</a>
+                  				onclick = "return confirm('Bạn có muốn xóa sản phẩm này?')"><i class="ti-trash"></i></a>
                   			</td>
 						</tr>
 					</tbody>

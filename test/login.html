@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>khach hang</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="./assets/css/themify-icons-font (1)/themify-icons/themify-icons.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .main {
+        position: fixed;
+      }
+      .margintop-30px {
+        margin-top: 30px;
+      }
+
+      .slidebar-btn {
+        background-color: #fff;
+        border: 1px solid #000;
+        font-size: 16px;
+        border-color: #198754;
+        color: #198754;
+        width: 80%;
+        height: 30px;
+        margin: 10px 10%;
+        border-radius: 8px;
+      }
+      .slidebar-btn:hover {
+        background-color: #198754;
+        color: #fff;
+      }
+      .navbar-menu {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1;
+        background-color: #fff;
+        padding: 0;
+        border-radius: 8px;
+      }
+      .content {
+        display: flex;
+        margin: 38px 70px 0;
+        padding: 20px 0;
+      }
+      .content .slide-bar {
+        width: 30%;
+        height: 100vh;
+        padding: 10px 20px;
+        background-color: #e7e9eb;
+      }
+      .content .slide-bar .dof-client,
+      .content .slide-bar .rank-client {
+        border: 1px solid #198754;
+        padding: 10px 5px;
+        border-radius: 6px;
+      }
+
+      .content .slide-client {
+        padding: 20px;
+        overflow-y: scroll;
+        height: 100vh;
+      }
+
+      .table-client th {
+        width: 150px;
+        padding: 10px 5px;
+      }
+      .table-name-client {
+        width: 300px;
+      }
+
+      .slide-client .page-client .table-client tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      .slide-client .page-client .table-client tr:hover {
+        background-color: #ddd;
+      }
+
+      .slide-client .page-client td {
+        padding: 10px 2px;
+        min-width: 100px;
+      }
+
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+      }
+      .modal.open {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal .box-infor {
+        width: 400px;
+        height: 450px;
+        /* position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+        -webkit-box-shadow: 0 8px 6px -6px black;
+        -moz-box-shadow: 0 8px 6px -6px black;
+        box-shadow: 0 8px 6px -6px black;
+        font-weight: 600;
+        color: #000;
+        border-radius: 6px;
+        background-color: #fffefe;
+        padding-top: 3%;
+        padding-left: 3.5%;
+        animation: modalFadeIn ease 0.5s;
+      }
+      .modal .box-infor .width-100 {
+        width: 100%;
+      }
+
+      .modal .box-infor .margin-height {
+        margin-bottom: 15px;
+        line-height: 15px;
+        color: #000;
+      }
+      .modal .box-infor .size-box {
+        font-size: 20px;
+        color: #198754;
+        width: 85%;
+        border: none;
+        border: 1px solid #198754;
+        border-radius: 5px;
+      }
+      .modal .box-infor .add-btn {
+        display: flex;
+      }
+
+      @keyframes modalFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-250px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="navbar-menu">
+        <div class="menu" style="margin: 0 10%">
+          <nav class="navbar navbar-expand-lg">
+            <div
+              class="container-fluid"
+              style="
+                background-color: #198754;
+                border: 1px solid #198754;
+                border-radius: 16px;
+              "
+            >
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a
+                  class="navbar-brand"
+                  href="home.html"
+                  style="font-weight: 600; color: #fff"
+                  >TRANG CHỦ</a
+                >
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      aria-current="page"
+                      href="/hang-hoa"
+                      style="font-weight: 600; color: #fff"
+                      >HÀNG HÓA</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      aria-current="page"
+                      href="/khach-hang"
+                      style="font-weight: 600; color: #fff"
+                      >KHÁCH HÀNG</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      aria-current="page"
+                      href="#"
+                      style="font-weight: 600; color: #fff"
+                      >HÓA ĐƠN</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      aria-current="page"
+                      href="ban_hang.html"
+                      style="font-weight: 600; color: #fff"
+                      >BÁN HÀNG</a
+                    >
+                  </li>
+                </ul>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="login.html"
+                  style="font-weight: 600; color: #fff; margin-right: 20px"
+                >
+                 ĐĂNG XUẤT</a
+                >
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="slide-bar">
+          <h4>Khách Hàng</h4>
+
+          <div class="search-client margintop-30px">
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Số điện thoại, Tên"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+          <div class="dof-client margintop-30px">
+            <h style="padding-left: 20px; font-size: 20px; font-weight: 400"
+              >Sinh Nhật</h
+            >
+            <a href="#"
+              ><input
+                type="date"
+                value=""
+                class="slidebar-btn"
+                placeholder="Ngay sinh"
+              />
+            </a>
+
+            <a href="#"
+              ><input
+                type="button"
+                value="Sinh nhật trong tháng"
+                class="slidebar-btn"
+              />
+            </a>
+          </div>
+
+          <div class="rank-client margintop-30px">
+            <h style="padding-left: 20px; font-size: 20px; font-weight: 400"
+              >Điểm số</h
+            >
+            <a href="#"
+              ><input
+                type="button"
+                value="Điểm tích lũy cao nhất"
+                class="slidebar-btn"
+              />
+            </a>
+
+            <a href="#"
+              ><input
+                type="button"
+                value="Điểm cao nhất trong tháng"
+                class="slidebar-btn"
+              />
+            </a>
+          </div>
+
+          <div class="add-new-client margintop-30px">
+            <form action="#">
+              <button
+                value="Thêm khách hàng"
+                class="slidebar-btn js-uppdate-client"
+              >
+                Thêm khách hàng
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="slide-client">
+          <div class="page-client">
+            <table class="table-client">
+              <thead>
+                <tr
+                  style="
+                    background-color: #198754;
+                    color: #fff;
+                    margin-bottom: 50px;
+                  "
+                >
+                  <th>Mã KH</th>
+                  <th>Số điện thoại</th>
+                  <th>Tên Khách Hàng</th>
+                  <th>Ngày Sinh</th>
+                  <th>Giới Tính</th>
+                  <th>ĐiểmTích Lũy</th>
+                  <th style="width: 200px; align-items: center"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>0398939824</td>
+                  <td class="table-name-client">Nguyễn Sơn Hà</td>
+                  <td>26/12/2002</td>
+                  <td>Nam</td>
+                  <td>1000</td>
+                  <td>
+                    <button
+                      class="btn btn-success js-uppdate-client"
+                      style="width: 40%; padding: 0"
+                    >
+                      Sửa
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>0398939824</td>
+                  <td>Nguyễn Sơn Hà</td>
+                  <td>26/12/2002</td>
+                  <td>Nam</td>
+                  <td>1000</td>
+                  <td>
+                    <button
+                      class="btn btn-success js-uppdate-client"
+                      style="width: 40%; padding: 0"
+                    >
+                      Sửa
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal js-modal">
+      <div class="box-infor js-modal-box-infor">
+        <form action="" class="form-infor">
+          <div class="width-100 margin-height">
+            <label for="" class="margin-height">Tên khách hàng</label>
+            <br />
+            <input class="size-box" type="text" name="" id="" required />
+          </div>
+
+          <div class="width-100 margin-height">
+            <label for="" class="margin-height">Số điện thoại</label>
+            <br />
+            <input class="size-box" type="number" name="" id="" required />
+          </div>
+
+          <div class="width-100 margin-height">
+            <label for="" class="margin-height">Ngày sinh</label>
+            <br />
+            <input class="size-box" type="text" name="" id="" required />
+          </div>
+
+          <div class="width-100 margin-height">
+            <label for="" class="margin-height">Giới tính</label>
+            <br />
+            <select class="size-box margin-height">
+              <option value="0">Nữ</option>
+              <option value="1">Nam</option>
+            </select>
+
+            <div class="add-btn">
+              <input
+                type="submit"
+                style="
+                  width: 30%;
+                  margin-top: 15px;
+                  margin-right: 5%;
+                  margin-left: 5%;
+                "
+                class="btn btn-success padding-btn"
+                value="Lưu"
+              />
+              <button
+                type="submit"
+                style="width: 30%; margin-top: 15px; margin-left: 10%"
+                class="btn btn-danger padding-btn js-modal-close"
+              >
+                Hủy
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const updates = document.querySelectorAll(".js-uppdate-client");
+      const modal = document.querySelector(".js-modal");
+      const modalClose = document.querySelector(".js-modal-close");
+      const modalBoxInfor = document.querySelector(".js-modal-box-infor");
+      function showAddNewClient() {
+        modal.classList.add("open");
+      }
+      function hideAddNewClient() {
+        modal.classList.remove("open");
+      }
+      for (const update of updates) {
+        update.addEventListener("click", showAddNewClient);
+      }
+
+      modalClose.addEventListener("click", hideAddNewClient);
+
+      modal.addEventListener("click", hideAddNewClient);
+      modalBoxInfor.addEventListener("click", function (event) {
+        event.stopImmediatePropagation();
+      });
+    </script>
+  </body>
+</html>

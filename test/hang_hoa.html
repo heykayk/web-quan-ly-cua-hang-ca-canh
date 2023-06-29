@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>hang hoa</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/css/hang_hoa.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="./assets/css/themify-icons-font (1)/themify-icons/themify-icons.css"
+    />
+  </head>
+  <body>
+    <div class="navbar-menu">
+      <div class="menu" style="margin: 0 10%">
+        <nav class="navbar navbar-expand-lg">
+          <div
+            class="container-fluid"
+            style="
+              background-color: #198754;
+              border: 1px solid #198754;
+              border-radius: 16px;
+            "
+          >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarTogglerDemo01"
+              aria-controls="navbarTogglerDemo01"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+              <a
+                class="navbar-brand"
+                href="home.html"
+                style="font-weight: 600; color: #fff"
+                >TRANG CHỦ</a
+              >
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="hang_hoa.html"
+                    style="font-weight: 600; color: #fff"
+                    >HÀNG HÓA</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="#"
+                    style="font-weight: 600; color: #fff"
+                    >KHÁCH HÀNG</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="#"
+                    style="font-weight: 600; color: #fff"
+                    >HÓA ĐƠN</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="ban_hang.html"
+                    style="font-weight: 600; color: #fff"
+                    >BÁN HÀNG</a
+                  >
+                </li>
+              </ul>
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="login.html"
+                style="font-weight: 600; color: #fff; margin-right: 20px"
+              >
+                CUT</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="content">
+      <div class="sidebar">
+        <span style="font-size: 24px; font-weight: 500">Hàng Hóa</span>
+        <div class="group-product">
+          <div class="name-group">Nhóm hàng</div>
+
+          <a href="#"
+            ><input type="button" value="Cá cảnh" class="group-btn"
+          /></a>
+          <a href="#"
+            ><input type="button" value="Phụ kiện" class="group-btn"
+          /></a>
+          <a href="#"
+            ><input type="button" value="Thức hiện" class="group-btn"
+          /></a>
+        </div>
+
+        <div class="add-product">
+          <div class="name-add-product">Thêm hàng hóa mới</div>
+          <form action="">
+            <input
+              class="name-new-product"
+              type="text"
+              placeholder="Tên sản phẩm"
+            />
+            <input
+              class="title-new-product"
+              type="text"
+              placeholder="Mô  sản phẩm"
+            />
+            <select class="form-selcet">
+              <option selected>Danh Mục Hàng Hóa</option>
+              <option value="1">Cá</option>
+              <option value="2">Phụ Kiện</option>
+              <option value="3">Thức</option>
+            </select>
+            <input
+              class="quatity-new-product"
+              type="number"
+              placeholder="Số lượng"
+            />
+            <input
+              class="import-price-new-product"
+              type="number"
+              placeholder="Giá nhập hàng"
+            />
+            <input
+              class="sales-price-new-product"
+              type="number"
+              placeholder="Giá bán hàng"
+            />
+            
+            <a href=""><input type="button" value="Thêm hàng hóa" class="add-new-product-btn"></a>
+          </form>
+        </div>
+      </div>
+
+      <div class="slide-product">
+        <div class="page-product">
+          <table class="table-product">
+            <thead>
+              <tr
+                style="
+                  background-color: #198754;
+                  color: #fff;
+                  margin-bottom: 50px;
+                "
+              >
+              <!--  -->
+                <th>Mã sản phẩm</th>
+                <th class="name-product">Tên sản phẩm</th>
+                <th>Giá bán</th>
+                <th>Số lượng</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody class="list-product" style="font-size: 16px; color: #000">
+              <tr>
+                <td class="id-pro">123456</td>
+                <td class="name-pro">
+                  sna pham nay co ten du dai de test xuong dong trong table xem
+                  no co tu xuong dong khong
+                </td>
+                <td class="price-pro">123456</td>
+                <td class="quatity-pro">12457896</td>
+                <td class="btn-pro">
+                  <a href="" class="btn btn-success" style="width: 40%; padding: 0;">Sửa</a>
+                  <!-- <a href="" class="btn btn-danger" style="width: 40%; padding: 0;">Xóa</a> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

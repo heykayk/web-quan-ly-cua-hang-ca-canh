@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/ban_hang.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="./assets/css/themify-icons-font (1)/themify-icons/themify-icons.css">
+    
+  </head>
+  <body>
+    <!-- <div class="container" style="position: fixed;"> -->
+    <div class="navbar-menu">
+        <div class="menu " style="margin: 0 10%;" >
+            <nav class="navbar navbar-expand-lg " >
+                <div class="container-fluid" style="background-color: #198754; border: 1px solid  #198754 ; border-radius: 16px; ">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <a class="navbar-brand" href="home.html" style="font-weight: 600; color: #fff;">TRANG CHỦ</a>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" > 
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="hang_hoa.html" style="font-weight: 600;color: #fff;">HÀNG HÓA</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" style="font-weight: 600; color: #fff">KHÁCH HÀNG</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" style="font-weight: 600;color: #fff;">HÓA ĐƠN</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="ban_hang.html" style="font-weight: 600;color: #fff;">BÁN HÀNG</a>
+                        </li>
+                        
+                    </ul>
+                    <a class="nav-link active" aria-current="page" href="login.html" style="font-weight: 600;color: #fff; margin-right: 20px;"> CUT</a>
+                    
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="store">
+       
+            <div class="form-pay">
+                
+                <div class="list-product">
+                    <div class="search-product">
+                        <h5  class="title-search-product"> TẠO HÓA ĐƠN</h5>
+                        <form class="d-flex"role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                    
+                    <form action="">
+                        <div class="product">
+                            <div class="product-trash">
+                                <button class="product-trash-btn">
+                                    <i class="ti-trash"></i>
+                                </button>
+                            </div>
+                            <span class="product-id">
+                                123456
+                            </span>
+                            <span class="product-name">
+                                Cá betta xanh do tim vang de
+                            </span>
+                            <span class="product-price">
+                                1200000
+                            </span>
+                            <input class="product-btn-quatity" type="number" value="1">
+                            <span class="product-total">
+                                1200000
+                            </span>
+                            </div>    
+                        </div>
+                        <div class="sum-total-product">
+                            <span class="sum-text">
+                                Tổng tiền Hàng
+                            </span>
+                            <span class="sum-total">
+                                12000000
+                            </span>
+                            <input type="button" value="Thanh Toán" class="sum-total-btn">
+                        </div>
+                    </form>
+            </div>
+            <div class="box-croll">
+                 <div class="search-store">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+
+                    <form action="">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Danh Mục Hàng Hóa</option>
+                            <option value="1">Cá</option>
+                            <option value="2">Phụ Kiện</option>
+                            <option value="3">Thức </option>
+                        </select>
+                    </form>
+                 </div>
+
+                <div class="list-store">
+                    <div class="card size-card" style="display: block">
+                        <img  src="./assets/image/anh-ca-betta.jpg" class="card-img-top size-img" alt="...">
+                        <div class="card-body">
+                            <p class="card-title">Card title</p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="price">600000</p>
+                            <input type="button" value="Thêm hàng" style="width: 100%" class="card-button">
+                        </div>
+                    </div>
+                    <div class="card size-card" style="display: block">
+                        <img  src="./assets/image/anh-ca-betta.jpg" class="card-img-top size-img" alt="...">
+                        <div class="card-body">
+                            <p class="card-title">Card title</p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="price">600000</p>
+                            <input type="button" value="Thêm hàng" style="width: 100%" class="card-button">
+                        </div>
+                    </div>
+                    <div class="card size-card" style="display: block">
+                        <img  src="./assets/image/anh-ca-betta.jpg" class="card-img-top size-img" alt="...">
+                        <div class="card-body">
+                            <p class="card-title">Card title</p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="price">600000</p>
+                            <input type="button" value="Thêm hàng" style="width: 100%" class="card-button">
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        
+    </div>
+
+   <canvas id="myChart" style="width:100%;max-width:1000px; margin: 0 auto;" ></canvas>
+    <script type="text/javascript" src="script.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  </body>
+</html>

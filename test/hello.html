@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	integrity="">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <h1>List Books</h1>
+    </div>
+    <table class="table table-striped talbe-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>BookCode</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Category</th>
+          <th>Sold</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="book-rows"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const api_url = "http://localhost:8080/books";
+
+    async function getapi(url){
+      const response = await fetch(url);
+      var data = await response.json();
+      show(data)
+    }
+
+    getapi(api_url);
+
+    function show(books){
+      let tab = ``;
+
+      for(let book of books){
+        tab += ` <tr th:each="book: ${books}">
+					<td th:text="${book.bookcode}"></td>
+					<td th:text="${book.title}"></td>
+					<td th:text="${book.author}"></td>
+					<td th:text="${book.category}"></td>
+					<td><input type="checkbox" th:checked="${book.sold}" disabled></td>
+					<td><a th:href="@{book/{id} (id = ${book.bookcode})}"
+						class="btn btn-success">View</a>
+						<a class="btn btn-danger" onclick = "return confirm('bạn có muốn xóa không')" th:href = "@{book/deleteB/{id} (id = ${book.bookcode})}">Delete</a></td>
+				</tr>`
+
+      }
+      tab += `<a th:href="@{book/{id}(id = -1)}" class="btn btn-success col-lg-12">NewBook</a>`
+      document.getElementById("book-rows").innerHTML = tab;
+    }
+  </script>
+</body>
+</html>

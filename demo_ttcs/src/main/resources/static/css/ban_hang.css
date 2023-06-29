@@ -1,0 +1,484 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+  }
+
+.navbar-menu
+{
+    
+    position: fixed;
+   	width: 100%;
+    top: 0;
+    z-index: 1;
+    background-color: #fff;
+    padding: 0;
+    border-radius: 8px;
+    
+}
+/* phan than toan */
+
+.store  {
+    display: flex;
+    margin-top: 57px;
+    
+}
+/* pham paymemt */
+/* sua */
+.store .form-pay {
+    width: 60%;
+    background-color: #e7e9eb;
+    padding-top: 20px;
+    height:100vh;
+
+}
+.store .search-product .header-pay {
+	display:flex;
+}
+.store .search-product .title-search-product {
+    padding-bottom: 10px;
+    width: 100%;
+    margin: 0 20px;
+}
+.store .search-product .d-flex,
+.store .search-product .customer-name {
+    width: 50%;
+    margin: 0 10px;
+}
+ .sugget-search {
+     display: none;
+     width: 400px;
+     background-color: #fff;
+     padding: 20px;
+     box-shadow: 0 8px 6px -6px black;
+     border-radius: 6px;
+ }
+
+ .store .form-pay .d-flex {
+     position: relative;
+ }
+
+ .store .form-pay .d-flex .sugget-search {
+     position: absolute;
+     height: 300px;
+     overflow-y: scroll;
+ }
+
+ .store .form-pay .d-flex:hover .sugget-search {
+     display: block;
+     
+ }
+  .store .form-pay .d-flex .sugget-search a{
+    text-decoration: none;
+    color: #000;
+    line-height: 50px;
+  }
+  .store .form-pay .d-flex .sugget-search a:hover {
+    background-color: #ccc;
+  }
+ .store .form-pay .d-flex .sugget-search tr {
+    width: 100%;
+ }
+ .store .form-pay .d-flex .sugget-search td {
+    width: 250px;
+    text-align: left;
+    
+ }
+ .store .form-pay .d-flex .sugget-search .slidebar-btn {
+    background-color: #fff;
+    border: 1px solid #000;
+    font-size: 16px;
+    border-color: #198754;
+    color: #198754;
+    width: 200px;
+    height: 30px;
+    margin: 10px 92px;
+    border-radius: 6px;
+    padding: 8px;
+
+}
+ .store .form-pay .d-flex .sugget-search .slidebar-btn:hover {
+    background-color: #198754;
+        color: #fff;
+ }
+ /* sua */
+.store .list-product {
+    padding-top: 15px;
+    height:370px;
+    overflow-y: scroll;
+    border-bottom: 2px solid #000;
+}
+.store .btn {
+    display: block;
+}
+
+
+.store .form-pay .product {
+    display: flex;
+    text-align: center;
+    
+    margin: 10px 20px;
+    background-color: #fff;
+    box-shadow: 2px 2px #f4f9f9;
+    padding: 20px;
+    border-radius:  10px;
+}
+
+
+.store .product .product-trash-btn 
+{
+    border: none;
+    width: 30px;
+    margin: 0 10px ;
+    display: block;
+    background-color: #fff;
+
+}
+.store .product .product-trash-btn:hover {
+    background-color: red;
+}
+
+.store .product .product-id
+{
+
+    width: 15%;
+    min-width: 60px;
+    margin: 0 10px;
+}
+
+.store .product .product-name {
+    width: 20%;
+    min-width: 120px;
+    margin: 0 10px;
+    display: block;
+        /* Fallback trong trường hợp trình duyệt không hỗ trợ display dạng box */
+    display: -webkit-box;
+    
+    /* Fallback  */
+    max-height: 60px;
+    /* Fallback số dòng bạn muốn giới hạn */
+    -webkit-line-clamp: 1;
+    /* Số dòng bạn muốn giới hạn */
+    -webkit-box-orient: vertical;
+    visibility: visible;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    
+}
+.store .product .pro-btn{
+	 width: 30px; 
+	 border: none; 
+	 border-radius: 8px;
+}
+.store .product .pro-btn:hover{
+	 background-color: #198754;
+	 color:white
+}
+.store .product .product-price {
+    width: 15%;
+    min-width: 60px;
+    margin: 0 10px;
+}
+.store .product .product-btn-quatity {
+    width: 50px;
+    display: flex;
+}
+.store .product .product-total {
+    width: 20%;
+    
+    min-width: 100px;
+    margin: 0 10px;
+}
+/* sua*/
+.store .sum-total-product {
+    display: flex;
+    padding: 20px 0px;
+}
+.store .sum-total-product .sum-total-btn,
+.store .sum-total-product .sum-total,
+.store .sum-total-product .sum-text {
+    font-size: 16px;
+    text-transform: uppercase;
+     text-align: center;
+     padding:10px;
+     
+}
+
+.store .sum-total-product .sum-text {
+    width:30%;
+}
+.store .sum-total-product .sum-total {
+    width: 40%;
+}
+.store .sum-total-product .sum-total-btn {
+    width: 20%;
+    border-radius: 6px;
+    border-color: #198754;
+    color: #198754;
+}
+.store .sum-total-product .sum-total-btn:hover{
+    background-color: #198754;
+    color: #fff;
+    border: 1px #198754 ;
+}
+
+
+
+/* phan list store */
+/* sua*/
+.store .box-croll {
+    width: 600px;
+    height: 100vh;
+    border: 1px solid #ccc;
+    overflow-y: scroll;
+    float: left;
+    background-color: #e7e9eb;
+    padding-top: 22px;
+}
+
+.store .search-store {
+    margin: 10px 20px;
+    display: flex;
+}
+.store .d-flex {
+    width: 50%;
+    margin-right: 5px;
+}
+
+.store .form-select {
+    width: 100%;
+    margin-left: 5px;
+}
+
+.store .list-store 
+{
+    margin: 0 20px;
+    
+}
+
+.store .card {
+    float: left;
+    width: 33.33333%;
+   
+    text-align: center;
+   padding: 5px;
+    display: block;
+}
+
+.store .product .product-quatity .pro-btn {
+    width: 25px;
+    
+}
+.store .product .product-quatity .pro-btn:hover {
+    background-color :#198754;
+    color: #fff;
+    
+}
+
+.store .list-store .btn
+{
+    display: block;
+        /* Fallback trong trường hợp trình duyệt không hỗ trợ display dạng box */
+    display: -webkit-box;
+    
+    /* Fallback  */
+    max-height: 60px;
+    /* Fallback số dòng bạn muốn giới hạn */
+    -webkit-line-clamp: 1;
+    /* Số dòng bạn muốn giới hạn */
+    -webkit-box-orient: vertical;
+    visibility: visible;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 300px;
+    line-height: 1.2;
+    font-size: 12px;
+    color: #000;
+    text-decoration: none;
+}
+.store .list-store .card-text,
+.store .list-store .card-title,
+.store .list-store .price {
+    line-height: 1;
+    font-size: 15px;
+   
+
+}
+.store .list-store .card-text {
+    display: block;
+    /* Fallback trong trường hợp trình duyệt không hỗ trợ display dạng box */
+    display: -webkit-box;
+    /* Fallback  */
+    max-height: 74px;
+    /* Fallback số dòng bạn muốn giới hạn */
+    -webkit-line-clamp: 2;
+    /* Số dòng bạn muốn giới hạn */
+    -webkit-box-orient: vertical;
+    visibility: visible;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 300px;
+    line-height: 1.2;
+    font-size: 15px;
+    color: #000;
+    text-decoration: none;
+    
+}
+.store .list-store .card-button {
+    border-radius: 6px;
+    border-color: #198754;
+    color: #198754;
+    box-shadow: none;
+}
+.store .list-store .card-button:hover {
+    background-color: #198754;
+    color: #fff;
+    border-color: #198754;
+
+}
+.store .list-store .size-img {
+    width: 100%;
+    height: 120px;
+}
+
+.store .btn {
+    display: block;
+}
+
+.modal {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+
+}
+
+.modal.open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal .box-infor {
+    position: relative;
+    width: 350px;
+    height: 250px;
+    /* position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+    font-weight: 600;
+    color: #000;
+    border-radius: 6px;
+    background-color: #fffefe;
+     animation: modalFadeIn ease .5s;
+     padding-top: 5%;
+   
+   
+   
+}
+.modal .box-infor .form-infor p {
+   text-align: center;
+  
+}
+.modal .box-infor .form-infor .add-btn {
+    width: 80%;
+   padding-left: 40%;
+   padding-top: 10%;
+}
+
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-250px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+}
+.modal-customer {
+    position:fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    
+}
+ .modal-customer.open2{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+.modal-customer .modal-add-customer {
+    width: 400px;
+    height: 450px;
+    /* position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+    font-weight: 600;
+    color: #000;
+    border-radius: 6px;
+    background-color: #fffefe;
+    padding-top: 3%;
+    padding-left: 3.5%;
+    animation: modalFadeIn ease .5s;
+}
+.modal-customer .modal-add-customer .width-100 {
+    width: 100%;
+}
+
+.modal-customer .modal-add-customer .margin-height {
+    margin-bottom: 15px;
+    line-height: 15px;
+    color: #000;
+}
+
+.modal-customer .modal-add-customer .size-box {
+    font-size: 20px;
+    color: #198754;
+    width: 85%;
+    border: none;
+    border: 1px solid #198754;
+    border-radius: 5px;
+}
+
+.modal-customer .modal-add-customer .add-btn {
+    display: flex;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+
+}
+
+
+
+
+
+
+
+
+
+

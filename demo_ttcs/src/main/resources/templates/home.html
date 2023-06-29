@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/css/home.css" />
+
+  <link rel="stylesheet" href="./assets/css/themify-icons/themify-icons.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="main">
+    <div class="navbar-menu">
+      <div class="menu" style="margin: 0 10%">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid" style="
+                background-color: #198754;
+                border: 1px solid #198754;
+                border-radius: 16px;
+              ">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+              aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+              <a class="navbar-brand" href="/trang_chu" style="font-weight: 600; color: #fff">TRANG CHỦ</a>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/hang-hoa"
+                    style="font-weight: 600; color: #fff">HÀNG HÓA</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/customer"
+                    style="font-weight: 600; color: #fff">KHÁCH HÀNG</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/hoa_don"
+                    style="font-weight: 600; color: #fff">HÓA ĐƠN</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/ban_hang"
+                    style="font-weight: 600; color: #fff">BÁN HÀNG</a>
+                </li>
+              </ul>
+              <a class="nav-link active" aria-current="page" href="/logout"
+                style="font-weight: 600; color: #fff; margin-right: 20px">
+                ĐĂNG XUẤT</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="massage">
+        <h4>THÔNG BÁO</h4>
+        <hr />
+        <div class="massage-product">
+          <h4 style="color: #198754">Top sản phẩm bán chạy</h4>
+          <hr />
+          <table id="top10-product">
+            <tr>
+              <td style="text-align: left; border-right: 1px #198754 dashed">
+                cá vàng
+              </td>
+              <td style="text-align: right">50</td>
+            </tr>
+            <tr>
+              <td style="text-align: left; border-right: 1px #198754 dashed">
+                cá vàng
+              </td>
+              <td style="text-align: right">50</td>
+            </tr>
+            <tr>
+              <td style="text-align: left; border-right: 1px #198754 dashed">
+                cá vàng
+              </td>
+              <td style="text-align: right">50</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="report">
+        <div class="report-today">
+          <h5 style="color: #198754">KẾT QUẢ BÁN HÀNG HÔM NAY</h5>
+          <table>
+            <tr>
+              <td>
+                <div class="box-circle" style="display: inline-flex">
+                  <div class="circle">
+                    <i class="ti-layout-width-default-alt"></i>
+                  </div>
+                  <h6 style="margin-left: 8px">Hóa Đơn</h6>
+                </div>
+              </td>
+
+              <td>
+                <div class="box-circle" style="display: inline-flex">
+                  <div class="circle">
+                    <i class="ti-shopping-cart"></i>
+                  </div>
+                  <h6 style="margin-left: 8px">Số Lượng Hàng</h6>
+                </div>
+              </td>
+
+              <td>
+                <div class="box-circle" style="display: inline-flex">
+                  <div class="circle">
+                    <i class="ti-money"></i>
+                  </div>
+                  <h6 style="margin-left: 8px">Tổng Tiền</h6>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td th:text="${billDay}">
+                <h5></h5>
+              </td>
+              <td th:text="${total_sold}">
+                <h5></h5>
+              </td>
+              <td th:text="${total_amount}">
+                <h5></h5>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="report-week">
+          <h5 style="color: #198754">KẾT QUẢ BÁN HÀNG THEO TUẦN</h5>
+
+
+          <canvas id="columnChart" width="400" height="300"></canvas>
+        </div>
+
+        <div class="report-model">
+          <h5 style="color: #198754">KẾT QUẢ BÁN HÀNG THEO NHÓM HÀNG</h5>
+          <div class="char-pie">
+
+            <canvas id="myChart2" width="200" height="200"></canvas>
+
+            </form>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <script>
+
+    async function demo() {
+      var list = [];
+      await fetch(`/trang_chu/get15day`)
+        .then(response => response.json())
+        .then(data => {
+          for (let i = 14; i >= 0; i--) {
+            list.push(data[i]);
+          }
+        });
+
+      return list;
+    }
+
+    async function drawChart() {
+      var chartData = await demo();
+
+      var today = new Date();
+      var labels = [];
+      for (var i = 14; i >= 0; i--) {
+        var date = new Date(today);
+        date.setDate(today.getDate() - i);
+        labels.push(formatDate(date));
+      }
+      // Dữ liệu biểu đồ
+      var data = {
+        labels: labels,
+        datasets: [{
+          label: "Tổng tiền theo ngày",
+          data: chartData,
+          backgroundColor: "rgba(25, 135, 84, 1)"
+        }]
+      };
+
+      // Thiết lập các thông số biểu đồ
+      var options = {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      };
+
+      // Vẽ biểu đồ cột
+      var ctx = document.getElementById("columnChart").getContext("2d");
+      var chart = new Chart(ctx, {
+        type: "bar",
+        data: data,
+        options: options
+      });
+    }
+
+    drawChart();
+
+
+    // Hàm định dạng ngày tháng (YYYY-MM-DD)
+    function formatDate(date) {
+      var year = date.getFullYear();
+      var month = (date.getMonth() + 1).toString().padStart(2, "0");
+      var day = date.getDate().toString().padStart(2, "0");
+      return day + "-" + month + "-" + year;
+    }
+
+    async function getapi() {
+      const response = await fetch("/trang_chu/top10Product");
+      const data = await response.json();
+      console.log(data);
+      show(data);
+    }
+
+    getapi();
+
+    function show(data) {
+      let tab = ``;
+
+      for (let product of data) {
+        tab += `<tr>
+                <td style="text-align: left; border-right: 1px #198754 dashed">
+                  ${product.name}
+                </td>
+                <td style="text-align: right">${product.amountSold}</td>
+              </tr>`;
+      }
+
+      document.getElementById("top10-product").innerHTML = tab;
+    }
+  </script>
+
+  <script>
+    async function mapTotalAmountSold() {
+      var list = [];
+      await fetch(`/trang_chu/totalAmountSold`)
+        .then(response => response.json())
+        .then(data => {
+          for (let i = 2; i >= 0; i--) {
+            list.push(data[i]);
+          }
+        });
+
+      return list;
+    }
+
+    async function drawCircle() {
+      var circleData = await mapTotalAmountSold();
+      console.log(circleData)
+      var ctx = document.getElementById("myChart2").getContext("2d");
+      var myChart = new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: ["Cá cảnh", "Phụ kiện", "Thức ăn",],
+          datasets: [
+            {
+              label: "Dữ liệu",
+              data: circleData,
+              backgroundColor: ["rgba(52, 152, 219, 1)", "rgba(25, 135, 84, 1)", "rgba(231, 76, 60, 1)",],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          legend:
+          {
+            position: 'bottom'
+          }
+        },
+      });
+
+    }
+
+    drawCircle()
+
+  </script>
+</body>
+
+</html>

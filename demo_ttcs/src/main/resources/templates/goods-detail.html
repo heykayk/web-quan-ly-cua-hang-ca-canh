@@ -11,73 +11,12 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <style>
-      body {
-        background-color: #ffffff;
-      }
-      .content {
-        display: flex;
-        width: 70%;
-        background-color: #e9e8e8;
-        -webkit-box-shadow: 0 8px 6px -6px black;
-        -moz-box-shadow: 0 8px 6px -6px black;
-        box-shadow: 0 8px 6px -6px black;
-        font-weight: 600;
-        color: #000;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 6px;
-      }
-      .content .content-img {
-        width: 50%;
-        height: 550px;
-        background-color: #e9e8e8;
-        position: relative;
-        border-radius: 6px;
-
-      }
-     .loca-img  {
-      width: 80%;
-      height: 80%;
-      background-color: #198754;
-      position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-     }
-      .box-goods {
-        width: 50%;
-        height: 550px;
-        position: absolute;
-        
-        
-        padding-top: 3%;
-        padding-left: 5%;
-       
-        display: block;
-        border: none;
-        border-radius: 6px;
-        
-        
-      }
-
-      .margin-height {
-        margin-bottom: 15px;
-        line-height: 15px;
-        color:  #000;
-      }
-      .size-box {
-        font-size: 20px;
-        color:  #198754;
-        width: 85%;
-        border: none;
-        border: 1px solid  #198754;
-        border-radius: 5px;
-      }
-
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="./assets/css/themify-icons/themify-icons.css"
+    />
+	<link rel="stylesheet" th:href="@{/css/good-detail.css}">
   </head>
   <body>
     <div class="content">
@@ -110,12 +49,12 @@
           <div class="row-x margin-height">
             <label for="" class="margin-height">Link ảnh sản phẩm: </label>
             <br>
-            <input name = "description" th:value = "${product.description}" required class="size-box"  type="text" id="myFileInput" onchange="displayOnlineImage()">
+            <input name = "image" th:value = "${product.image}" required class="size-box"  type="text" id="myFileInput" onchange="displayOnlineImage()">
           </div>
           <div class="row-x margin-height">
             <label for="" class="margin-height">Số lượng sản phẩm: </label>
             <br>
-            <input class="size-box" type="number" name = "quatity" th:value = "${product.quatity}"><br>
+            <input class="size-box" type="number" name = "quatity" th:value = "${product.quantity}"><br>
           </div>
           <div class="row-x margin-height">
             <label for="" class="margin-height">Giá nhập sản phẩm: </label>
@@ -125,7 +64,7 @@
           <div class="row-x margin-height">
             <label for="" class="margin-height">Giá bán sản phẩm: </label>
             <br>
-            <input class="size-box" type="number" name = "slaes_price" th:value = "${product.slaes_price}"><br>
+            <input class="size-box" type="number" name = "sales_price" th:value = "${product.sales_price}"><br>
           </div>
           <input type="submit" style="
               width: 30%;
@@ -139,6 +78,7 @@
     </div>
         <script>
 	        start();
+	        console.log("hello")
 	        function start(){
 	          document.getElementById("mySelect").value = document.getElementById("checkType").value + "";
 	          document.getElementById('myImage').src = document.getElementById('myFileInput').value;

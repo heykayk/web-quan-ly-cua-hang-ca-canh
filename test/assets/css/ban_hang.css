@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar-menu
+{
+    
+    position: fixed;
+   width: 100%;
+    top: 0;
+    z-index: 1;
+    background-color: #e7e9eb;
+    padding: 0;
+    border-radius: 8px;
+    
+}
+/* phan than toan */
+
+.store  {
+    display: flex;
+    margin-top: 57px;
+    
+}
+/* pham paymemt */
+.store .form-pay {
+    width: 60%;
+    background-color: #e7e9eb;
+    padding-top: 20px;
+
+}
+.store .search-product {
+    
+    display: flex;
+}
+.store .search-product .title-search-product {
+    padding-bottom: 10px;
+    width: 50%;
+    margin: 0 20px;
+}
+.store .search-product .d-flex {
+    width: 50%;
+    margin: 0 20px;
+}
+.store .list-product {
+    padding-top: 15px;
+    height:500px;
+    overflow-y: scroll;
+    border-bottom: 2px solid #000;
+}
+.store .btn {
+    display: block;
+}
+
+
+.store .form-pay .product {
+    display: flex;
+    text-align: center;
+    
+    margin: 10px 20px;
+    background-color: #fff;
+    box-shadow: 2px 2px #f4f9f9;
+    padding: 20px;
+    border-radius:  10px;
+}
+
+
+.store .product .product-trash-btn 
+{
+    border: none;
+    width: 30px;
+    margin: 0 10px ;
+    display: block;
+    background-color: #fff;
+
+}
+.store .product .product-trash-btn:hover {
+    background-color: red;
+}
+
+.store .product .product-id
+{
+
+    width: 15%;
+    min-width: 60px;
+    margin: 0 10px;
+}
+
+.store .product .product-name {
+    width: 20%;
+    min-width: 120px;
+    margin: 0 10px;
+    display: block;
+        /* Fallback trong trường hợp trình duyệt không hỗ trợ display dạng box */
+    display: -webkit-box;
+    
+    /* Fallback  */
+    max-height: 60px;
+    /* Fallback số dòng bạn muốn giới hạn */
+    -webkit-line-clamp: 1;
+    /* Số dòng bạn muốn giới hạn */
+    -webkit-box-orient: vertical;
+    visibility: visible;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    
+}
+.store .product .product-price {
+    width: 15%;
+    min-width: 60px;
+    margin: 0 10px;
+}
+.store .product .product-btn-quatity {
+    width: 50px;
+    display: flex;
+}
+.store .product .product-total {
+    width: 20%;
+    
+    min-width: 100px;
+    margin: 0 10px;
+}
+.store .sum-total-product {
+    display: flex;
+    margin-top: 20px;
+}
+.store .sum-total-product .sum-total-btn,
+.store .sum-total-product .sum-total,
+.store .sum-total-product .sum-text {
+    font-size: 16px;
+    text-transform: uppercase;
+     text-align: center;
+     padding:10px;
+     
+}
+.store .sum-total-product .sum-text {
+    width:30%;
+}
+.store .sum-total-product .sum-total {
+    width: 40%;
+}
+.store .sum-total-product .sum-total-btn {
+    width: 20%;
+    border-radius: 6px;
+    border-color: #198754;
+    color: #198754;
+}
+.store .sum-total-product .sum-total-btn:hover{
+    background-color: #198754;
+    color: #fff;
+    border: 1px #198754 ;
+}
+
+
+
+/* phan list store */
+.store .box-croll {
+    width: 600px;
+    height: 600px;
+    border: 1px solid #ccc;
+    overflow-y: scroll;
+    float: left;
+    background-color: #e7e9eb;
+    padding-top: 22px;
+}
+
+.store .search-store {
+    margin: 10px 20px;
+    display: flex;
+}
+.store .d-flex {
+    width: 50%;
+    margin-right: 5px;
+}
+
+.store .form-select {
+    width: 50%;
+    margin-left: 5px;
+}
+
+.store .list-store 
+{
+    margin: 0 20px;
+    
+}
+
+.store .card {
+    float: left;
+    width: 33.33333%;
+   
+    text-align: center;
+   padding: 5px;
+    display: block;
+}
+
+
+.store .list-store .btn
+{
+    display: block;
+        /* Fallback trong trường hợp trình duyệt không hỗ trợ display dạng box */
+    display: -webkit-box;
+    
+    /* Fallback  */
+    max-height: 60px;
+    /* Fallback số dòng bạn muốn giới hạn */
+    -webkit-line-clamp: 1;
+    /* Số dòng bạn muốn giới hạn */
+    -webkit-box-orient: vertical;
+    visibility: visible;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 300px;
+    line-height: 1.2;
+    font-size: 12px;
+    color: #000;
+    text-decoration: none;
+}
+.store .list-store .card-text,
+.store .list-store .card-title,
+.store .list-store .price {
+    line-height: 1;
+    font-size: 15px;
+   
+
+}
+.store .list-store .card-text {
+    display: block;
+    /* Fallback trong trường hợp trình duyệt không hỗ trợ display dạng box */
+    display: -webkit-box;
+    /* Fallback  */
+    max-height: 74px;
+    /* Fallback số dòng bạn muốn giới hạn */
+    -webkit-line-clamp: 2;
+    /* Số dòng bạn muốn giới hạn */
+    -webkit-box-orient: vertical;
+    visibility: visible;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 300px;
+    line-height: 1.2;
+    font-size: 15px;
+    color: #000;
+    text-decoration: none;
+    
+}
+.store .list-store .card-button {
+    border-radius: 6px;
+    border-color: #198754;
+    color: #198754;
+    box-shadow: none;
+}
+.store .list-store .card-button:hover {
+    background-color: #198754;
+    color: #fff;
+    border-color: #198754;
+    bo
+}
+.store .list-store .size-img {
+    width: 100%;
+    height: 120px;
+}
+
+.store .btn {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+

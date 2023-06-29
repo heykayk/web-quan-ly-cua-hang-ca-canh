@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ban-hang</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/ban_hang.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <link rel="stylesheet" href="./assets/css/themify-icons/themify-icons.css">
+
+</head>
+
+<body>
+
+  <div class="navbar-menu">
+    <div class="menu" style="margin: 0 10%">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid" style="
+                background-color: #198754;
+                border: 1px solid #198754;
+                border-radius: 16px;
+              ">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="/trang_chu" style="font-weight: 600; color: #fff">TRANG CHỦ</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/hang-hoa"
+                  style="font-weight: 600; color: #fff">HÀNG HÓA</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/customer"
+                  style="font-weight: 600; color: #fff">KHÁCH HÀNG</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/hoa_don" style="font-weight: 600; color: #fff">HÓA
+                  ĐƠN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/ban_hang"
+                  style="font-weight: 600; color: #fff">BÁN HÀNG</a>
+              </li>
+            </ul>
+            <a class="nav-link active" aria-current="page" href="/logout"
+              style="font-weight: 600; color: #fff; margin-right: 20px">
+              ĐĂNG XUẤT</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="store">
+    <div class="form-pay">
+      <div class="search-product">
+        <h5 class="title-search-product"> TẠO HÓA ĐƠN</h5>
+        <div class="header-pay">
+          <div class="customer-name">
+            <h6>Ten khach hang: <input type="text" disabled id="name-customer"></h6>
+            <input type="hidden" id="id-customer">
+          </div>
+          <div class="d-flex search-form" role="search">
+            <div class="auto-search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                id="search-cus-input" />
+              <div class="sugget-search" id="sugget-search">
+
+              </div>
+            </div>
+            <div class="search-results"></div>
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <form action="" id="list-buy">
+        <div class="list-product">
+        </div>
+        <div class="sum-total-product">
+          <span class="sum-text">
+            Tổng tiền Hàng
+          </span>
+          <span class="sum-total">
+            0
+          </span>
+          <a class="sum-total-btn js-uppdate-client" style="border: 1px solid #198754;">THANH TOÁN</a>
+        </div>
+      </form>
+    </div>
+
+    <div class="box-croll">
+      <div class="search-store">
+        <div class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+            id="searchProductByName">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+
+        <form action="">
+          <select class="form-select" aria-label="Default select example" id="mySelect" onchange="handleSelectChange()">
+            <option selected value="0"> Danh Mục Hàng Hóa </option>
+            <option value="1"> Cá </option>
+            <option value="2"> Phụ Kiện </option>
+            <option value="3"> Thức Ăn </option>
+          </select>
+        </form>
+      </div>
+
+      <div class="list-store" id="list_product"></div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="modal js-modal">
+    <div class="box-infor js-modal-box-infor">
+      <form action="" class="form-infor">
+        <P>THANH TOAN THANH CONG</P>
+
+        <div class="add-btn">
+
+          <a href="#" style="width: 50%; " class="btn btn-danger padding-btn js-modal-close"onclick="reload()">OK</a>
+        </div>
+    </div>
+    </form>
+  </div>
+
+
+  <div class="modal-customer js-modal-customer">
+    <div class="modal-add-customer js-modal-add-customer">
+      <form action="" class="form-infor">
+        <div class="width-100 margin-height">
+          <label for="" class="margin-height">Tên khách hàng</label>
+          <br />
+          <input class="size-box" type="text" name="" id="cus_name" required />
+        </div>
+
+        <div class="width-100 margin-height">
+          <label for="" class="margin-height">Số điện thoại</label>
+          <br />
+          <input class="size-box" type="text" name="" id="cus_phone" required />
+        </div>
+
+        <div class="width-100 margin-height">
+          <label for="" class="margin-height">Ngày sinh</label>
+          <br />
+          <input class="size-box" type="date" name="" id="cus_dob" required />
+        </div>
+
+        <div class="width-100 margin-height">
+          <label for="" class="margin-height">Giới tính</label>
+          <br />
+          <select class="size-box margin-height" id="cus_sex">
+            <option value="0">Nữ</option>
+            <option value="1">Nam</option>
+          </select>
+
+          <div class="add-btn">
+            <input type="submit" style="
+                  width: 30%;
+                  margin-top: 15px;
+                  margin-right: 5%;
+                  margin-left: 5%;
+                " class="btn btn-success padding-btn" value="Lưu" id="saveButton" />
+            <button type="submit" style="width: 30%; margin-top: 15px; margin-left: 10%"
+              class="btn btn-danger padding-btn js-modal-customer-close " onclick="hideAddCustomer()">
+              Hủy
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const updates = document.querySelectorAll(".js-uppdate-client");
+    const modal = document.querySelector(".js-modal");
+    const modalClose = document.querySelector(".js-modal-close");
+    const modalBoxInfor = document.querySelector(".js-modal-box-infor");
+    const api_url = "/ban_hang/list_product"
+    const searchProInput = document.getElementById("searchProductByName")
+    const searchCusInput = document.getElementById("search-cus-input");
+
+    function showAddNewClient() {
+      let id_cus = document.getElementById("id-customer").value
+      let name_cus = document.getElementById("name-customer").value;
+      let total_bill = document.getElementById("total-bill").innerText;
+
+      if (name_cus == null || name_cus === "") {
+        alert("Vui lòng chọn khách hàng thanh toán!!!")
+      } else {
+        const data = {
+          customerID: id_cus,
+          total: total_bill
+        }
+
+        fetch("/saveBill", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((responseData) => {
+            // Xử lý phản hồi từ backend (nếu cần)
+            if (responseData.message === "OK") {
+              modal.classList.add("open");
+            }
+          })
+      }
+    }
+
+    function reload(){
+      window.location.href = "http://localhost:8080/hoa_don";
+    }
+
+    function hideAddNewClient() {
+      modal.classList.remove("open");
+    }
+    for (const update of updates) {
+      update.addEventListener("click", showAddNewClient);
+    }
+
+    modalClose.addEventListener("click", hideAddNewClient);
+
+    modal.addEventListener("click", hideAddNewClient);
+    modalBoxInfor.addEventListener("click", function (event) {
+      event.stopImmediatePropagation();
+    });
+
+    searchProInput.addEventListener("keyup", function (event) {
+      console.log(searchProInput.value);
+      searchPro(searchProInput.value);
+    });
+
+    searchCusInput.addEventListener("keyup", function (event) {
+      searchCus(searchCusInput.value);
+    });
+
+    function searchCus(query) {
+      // Gửi yêu cầu tìm kiếm đến API server
+      const xhr = new XMLHttpRequest();
+      const url = `/search_customer?q=${query}`;
+
+      xhr.open("GET", url, true);
+
+      xhr.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+          const customers = JSON.parse(this.responseText);
+          console.log(customers.length)
+          // show(customers);
+          showCustomer(customers);
+
+        }
+      };
+      xhr.send();
+    }
+
+
+    function showCustomer(data) {
+      let tab = ``;
+
+      if (data.length === 0) {
+        tab += `<div class="add-new-client margintop-30px">
+                    <a
+                      value="Thêm khách hàng"
+                      class="slidebar-btn  js-add-customer"
+                      onclick = "showAddCustomer()"
+                      >
+                      Thêm khách hàng
+                    </a>
+                  </div>`
+      } else {
+        for (let customer of data) {
+          tab += ` <a href="#" style="display: flex;" onclick = "setNameCustomer(${customer.id}, '${customer.name}')">
+                    <table>
+                      <tr>
+                        <td  left;">${customer.name}</td>
+                        <td  left;">${customer.phone_number}</td>
+                      </tr>
+                    </table>
+                  </a>
+                  <hr>`;
+        }
+      }
+      document.getElementById("sugget-search").innerHTML = tab;
+    }
+
+    function setNameCustomer(id, name) {
+      document.getElementById("name-customer").value = name;
+      document.getElementById("id-customer").value = id;
+    }
+
+    function searchPro(query) {
+      // Gửi yêu cầu tìm kiếm đến API server
+      const xhr = new XMLHttpRequest();
+      const url = `/searchProduct?q=${query}`;
+
+      xhr.open("GET", url, true);
+
+      xhr.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+          const products = JSON.parse(this.responseText);
+          console.log("hello");
+          show(products);
+        }
+      };
+      xhr.send();
+    }
+
+    async function getDetaiBill() {
+      await fetch(`/listBuy`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          showDetailBill(data);
+        });
+    }
+
+    async function getapi(url) {
+      document.getElementById("search-cus-input").value = " ";
+      const response = await fetch(url);
+      const data = await response.json();
+      show(data);
+    }
+
+    getapi(api_url)
+    getDetaiBill()
+
+    function handleSelectChange() {
+      var t = document.getElementById("mySelect").value;
+      console.log(t);
+      fetch(`/ban_hang/list_product/${t}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          show(data);
+        });
+    }
+
+    async function delProduct(id, event) {
+      event.preventDefault();
+      await fetch(`/delProduct/${id}`)
+      getDetaiBill()
+    }
+
+    async function addProduct(id) {
+      await fetch(`/addProduct/${id}`)
+      getDetaiBill()
+    }
+
+    async function subProduct(id) {
+      await fetch(`subProduct/${id}`)
+      getDetaiBill()
+    }
+
+
+    function priceTotal(data) {
+      var c = 0
+      for (let buy of data) {
+        c += buy.total
+      }
+      return c;
+    }
+
+    function showDetailBill(data) {
+      let tab = `<div class="list-product">`
+
+      for (let buy of data) {
+        tab += `<div class="product">
+            <div class="product-trash">
+              <button class="product-trash-btn" type = "button" onclick = "delProduct(${buy.id}, event)">
+              	<i class="ti-trash"></i>
+              </button>
+            </div>
+            <span class="product-id">
+              ${buy.id}
+            </span>
+            <span class="product-name">
+              ${buy.name}
+            </span>
+            <span class="product-price">
+              ${buy.price}
+            </span>
+            <button  class="minus is-form pro-btn" type="button" onclick = "subProduct(${buy.id})"> - </button>
+            <input type="number" id="quantityInput" value="${buy.quantity}" min="1" max="10000" disabled>
+            <button class="minus is-form pro-btn" id = "increse-buy" type="button" onclick = "addProduct(${buy.id})"> + </button>
+
+            <span class="product-total">
+              ${buy.total}
+            </span>
+          </div>`;
+      }
+
+
+      tab += `</div>
+          <div class="sum-total-product">
+            <span class="sum-text">
+              Tổng tiền Hàng
+            </span>
+            <span class="sum-total" id = "total-bill">
+              ${priceTotal(data)}
+            </span>
+            <a class="sum-total-btn js-uppdate-client" onclick = "showAddNewClient()" style="border: 1px solid #198754;">THANH TOÁN</a>
+          </div>`
+      document.getElementById("list-buy").innerHTML = tab;
+    }
+
+
+    function show(data) {
+      let tab = ``;
+
+      for (let product of data) {
+        tab += `<div class="card size-card" style="display: block">
+            <img src="${product.image}" class="card-img-top size-img" alt="...">
+            <div class="card-body">
+              <p class="card-title">${product.name}</p>
+              <p class="price">${product.sales_price}</p>
+              <input type="button" value="Thêm hàng" onclick = "addProduct(${product.id})" style="width: 100%" class="card-button">
+            </div>
+          </div>`;
+      }
+
+      document.getElementById("list_product").innerHTML = tab;
+    }
+
+    ///gan class cua button cho bien
+    const addbtn = document.querySelector(".js-add-customer")
+    const modalCustomer = document.querySelector(".js-modal-customer")
+    const modalAddCustomer = document.querySelector(".js-modal-add-customer")
+    const saveButton = document.getElementById("saveButton");
+    ///gan class modal cho bien
+    const modalCustomerClose = document.querySelector(".js-modal-customer-close")
+    //ham nay de mo ra modal them class open vào modal
+
+    function showAddCustomer() {
+      modalCustomer.classList.add('open2')
+
+    }
+    //ham dong modal gỡ bo calss open của modal
+    function hideAddCustomer() {
+      modalCustomer.classList.remove('open2')
+    }
+    //lang nghe khi click vaof button ham showaddcustomer se duocj goi
+
+    modalCustomerClose.addEventListener("click", hideAddCustomer)
+
+    modalCustomer.addEventListener("click", hideAddCustomer)
+
+    modalAddCustomer.addEventListener("click", function (event) {
+      event.stopPropagation()
+    })
+
+  </script>
+
+</html>
